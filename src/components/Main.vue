@@ -69,6 +69,7 @@ export default {
 main{
     padding:80px 20px 15px 20px;
     background: $bg-color;
+    min-height: 100vh;
 }
 
 .container-custom{
