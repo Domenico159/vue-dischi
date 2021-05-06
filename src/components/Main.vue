@@ -115,4 +115,28 @@ main{
 }
 
 
+@media screen and (min-width:0px) and (max-width:600px){
+
+
+main .container-custom .col-custom{
+
+    width: calc(100% / 2 );
+
+}
+
+}
+
+@media screen and (min-width:601px) and (max-width:1200px){
+
+
+main .container-custom .col-custom{
+
+    width: calc(100% / 4 );
+
+}
+
+}
+
+
+
 </style>
