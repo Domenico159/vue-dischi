@@ -6,8 +6,12 @@
               <div v-for="(disk,index) in DiskList.response"
               :key="index"
               class="col-custom">
-                  <div class="disk">
-                      <div class="img"></div>
+                  <div class="disk text-center">
+                      <img class="mb-3" :src="disk.poster" :alt="disk.author">
+                      <h6 class="mb-2">{{ disk.title }}</h6>
+                      <div class="text-grey mb-2">{{ disk.author }}</div>
+                      <div class="text-grey mb-3">{{ disk.year }}</div>
+                      <h6>{{ disk.genre }}</h6>
                   </div>
               </div>
           </div>
@@ -75,11 +79,24 @@ main{
 .col-custom{
 
     width: calc(100% / 8 );
+    padding: 0 5px;
 
     .disk{
-   height: 300px;
+   min-height: 330px;
    background:$color-card; 
    margin: 10px;
+   padding: 15px;
+   color: #fff;
+        
+        img{
+            width: 100%;
+        }
+
+        .text-grey{
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 500;
+        }
 }
 }
 
