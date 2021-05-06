@@ -88,6 +88,12 @@ main{
    margin: 10px;
    padding: 15px;
    color: #fff;
+   transition: transform 0.3s;
+   cursor: pointer;
+
+   &:hover{
+       transform: scale(1.1);
+   }
         
         img{
             width: 100%;
