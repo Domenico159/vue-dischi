@@ -1,6 +1,6 @@
 <template>
   <header>
-     <h1>Header here</h1>
+      <img src="@/assets/assets-vue-dischi/logo.png" alt="">
   </header>
 </template>
 
@@ -11,5 +11,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import '@/styles/vars.scss';
+
+header{
+    background: $color-card;
+
+    img{
+        width: 50px;
+        margin: 5px;
+    }
+}
 
 </style>

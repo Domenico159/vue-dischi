@@ -1,30 +1,90 @@
 <template>
 
   <main>
-
-      <section class="container">
-          <div class="row">
-          <div class="col-6 col-md-4 col-lg-3">
-              <Disk />
+      <div class="container-custom">
+          <div class="row justify-content-center flex-wrap">
+              <div v-for="(disk,index) in DiskList.response"
+              :key="index"
+              class="col-custom">
+                  <div class="disk">
+                      <div class="img"></div>
+                  </div>
+              </div>
           </div>
       </div>
-      </section>
-
   </main>
 
 </template>
 
 <script>
-import Disk from './Disk.vue';
+
+import axios from 'axios';
+
 export default {
     name:'Main',
-    components: {
-        Disk,
+    data(){
+
+        return {
+            apiUrl:'https://flynn.boolean.careers/exercises/api/array/music',
+            DiskList:[],
+            loading:true,
+        }
+    },
+    created(){
+
+        this.getDisk();
+        
+
+    },
+    methods:{
+
+        getDisk(){
+
+            axios.get(this.apiUrl)
+
+            .then( result => {
+                this.DiskList = result.data
+
+                this.loading = false;
+            })
+
+            .catch(err =>{
+                console.log(err);
+            })
+
+        }
+
     }
 }
 </script>
 
 <style scoped lang="scss">
+
+@import '@/styles/vars.scss';
+
+main{
+    padding:80px 20px 15px 20px;
+    background: $bg-color;
+}
+
+.container-custom{
+
+    max-width: 1450px;
+    margin: 0 auto;
+
+.col-custom{
+
+    width: calc(100% / 8 );
+
+    .disk{
+   height: 300px;
+   background:$color-card; 
+   margin: 10px;
+}
+}
+
+
+}
 
 
 </style>
