@@ -99,6 +99,11 @@ main{
             font-weight: 600;
         }
 
+        h6{
+            font-weight: 600;
+        }
+
+
         .text-genre{
             font-size: 12px;
             font-weight: 600;
