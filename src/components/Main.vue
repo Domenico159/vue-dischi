@@ -11,7 +11,7 @@
                       <h6 class="mb-2">{{ disk.title }}</h6>
                       <div class="text-grey mb-2">{{ disk.author }}</div>
                       <div class="text-grey mb-3">{{ disk.year }}</div>
-                      <h6>{{ disk.genre }}</h6>
+                      <h6 class="text-genre">{{ disk.genre }}</h6>
                   </div>
               </div>
           </div>
@@ -95,6 +95,11 @@ main{
 
         .text-grey{
             color: #7c7f84;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .text-genre{
             font-size: 12px;
             font-weight: 600;
         }
