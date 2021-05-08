@@ -35,14 +35,13 @@ export default {
             DiskList:[],
             loading:true,
             genersMusical:[],
-            thisGenere:'All',
+            thisGenere:'',
         }
     },
     created(){
         this.getDisk();
         this.changeGenereCorrent();
-
-        console.log(this.thisGenere);
+        this.thisGenere = 'All'
         
     },
     updated(){
@@ -50,7 +49,7 @@ export default {
     },
     computed:{
       changeGenereAction(){
-        if(this.thisGenere == 'All' || this.thisGenere == undefined){
+        if(this.thisGenere == 'All'){
           return this.DiskList
         }
         return this.DiskList.filter(ele =>{
