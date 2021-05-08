@@ -1,8 +1,10 @@
 <template>
   <form class="pt-5 d-flex justify-content-center">
       <label for="disks">Choose a car:</label>
-      <select class="ms-3" id="disks" name="disks">
-        <option value="all">All</option>
+      <select v-model="selected"
+      @change="$emit('changeGenere', selected)"
+      class="ms-3" id="disks" name="disks">
+        <option value="All">All</option>
         <option v-for="(element,index) in generi "
         :key="index"
         :value="element">{{ element }}</option>
@@ -13,7 +15,12 @@
 <script>
 export default {
     name:'FilterGenders',
-    props:['generi']
+    props:['generi'],
+    data(){
+        return {
+            selected:'All',
+        }
+    },
 }
 </script>
 

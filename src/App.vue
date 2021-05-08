@@ -5,11 +5,12 @@
     <Header />
     <!-- FilterGenders -->
     <FilterGenders 
+    @changeGenere="changeGenereCorrent"
     :generi="genersMusical"
     />
     <!-- Main -->
      <Main 
-     :allDisk="DiskList"
+     :allDisk="changeGenereAction"
      />
   </div>
 </template>
@@ -34,14 +35,28 @@ export default {
             DiskList:[],
             loading:true,
             genersMusical:[],
+            thisGenere:'All',
         }
     },
     created(){
         this.getDisk();
+        this.changeGenereCorrent();
+
+        console.log(this.thisGenere);
         
     },
     updated(){
       this.generatedGeners();
+    },
+    computed:{
+      changeGenereAction(){
+        if(this.thisGenere == 'All' || this.thisGenere == undefined){
+          return this.DiskList
+        }
+        return this.DiskList.filter(ele =>{
+          return ele.genre == this.thisGenere
+        })
+      }
     },
      methods:{
 
@@ -70,6 +85,11 @@ export default {
           })
 
         },
+        changeGenereCorrent(genere){
+          
+          this.thisGenere = genere
+
+        }
     }
 }
 </script>
